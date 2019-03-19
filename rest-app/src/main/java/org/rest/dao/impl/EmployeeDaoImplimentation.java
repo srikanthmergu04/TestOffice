@@ -67,16 +67,19 @@ public class EmployeeDaoImplimentation implements EmployeeDao {
 	}
 
 	@Override
-	public List<EmployeeDetails> getEmployeeById(int id , JdbcTemplate jdbc) {
+	public EmployeeDetails getEmployeeById(int id , JdbcTemplate jdbc) {
 		
-		List<EmployeeDetails> list = new ArrayList();
+		//List<EmployeeDetails> list = new ArrayList();
 		
-		String sql = "EmployeeDao employeedao = new EmployeeDaoImplimentation();";
+		EmployeeDetails emp = new EmployeeDetails();
 		
+		String sql = "SELECT *FROM EmployeeDetails WHERE id = ?";
 		
+		emp = jdbc.queryForObject(sql, new EmployeeRowMapper(), id);
 		
+		//list.add(emp);
 		// TODO Auto-generated method stub
-		return list;
+		return emp;
 	}
 
 }

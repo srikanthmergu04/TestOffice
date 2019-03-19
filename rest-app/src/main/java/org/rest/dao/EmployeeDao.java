@@ -21,7 +21,7 @@ public interface EmployeeDao {
 	
 	public void deleteEmployee(int id, JdbcTemplate jdbc);
 	
-	public List<EmployeeDetails> getEmployeeById(int id , JdbcTemplate jdbc);
+	public EmployeeDetails getEmployeeById(int id , JdbcTemplate jdbc);
 	
 
 }

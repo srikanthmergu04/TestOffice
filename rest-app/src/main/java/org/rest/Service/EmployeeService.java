@@ -20,7 +20,7 @@ public List<EmployeeDetails> listAllUsers();
 	
 //	public void deleteEmployee(int id);
 	
-	public List<EmployeeDetails> getEmployeeById(int id , JdbcTemplate jdbc);
+	public EmployeeDetails getEmployeeById(int id , JdbcTemplate jdbc);
 
 	public void addEmployee(EmployeeDetails emp, JdbcTemplate jdbc);
 

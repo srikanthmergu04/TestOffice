@@ -2,17 +2,16 @@ package org.rest.model;
 
 public class EmployeeDetails {
 	
-	private String id;
+	private int id;
 	private String empName;
 	private String dept;
-	private String salary;
+	private int salary;
 	private String empMgrName;
-	private String empDeptId;
-	
-	public String getId() {
+	private int empDeptId;
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getEmpName() {
@@ -27,10 +26,10 @@ public class EmployeeDetails {
 	public void setDept(String dept) {
 		this.dept = dept;
 	}
-	public String getSalary() {
+	public int getSalary() {
 		return salary;
 	}
-	public void setSalary(String salary) {
+	public void setSalary(int salary) {
 		this.salary = salary;
 	}
 	public String getEmpMgrName() {
@@ -39,12 +38,14 @@ public class EmployeeDetails {
 	public void setEmpMgrName(String empMgrName) {
 		this.empMgrName = empMgrName;
 	}
-	public String getEmpDeptId() {
+	public int getEmpDeptId() {
 		return empDeptId;
 	}
-	public void setEmpDeptId(String empDeptId) {
+	public void setEmpDeptId(int empDeptId) {
 		this.empDeptId = empDeptId;
 	}
+	
+	
 	
 
 	}

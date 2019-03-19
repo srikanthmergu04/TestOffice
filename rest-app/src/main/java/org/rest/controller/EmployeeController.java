@@ -23,7 +23,7 @@ public class EmployeeController {
 	
 	
 	@RequestMapping(value = "/addEmployee" , method = RequestMethod.POST)
-	public EmployeeDetails addEmployee(@RequestParam("id") String id , @RequestParam("empName") String empName , @RequestParam("dept") String dept , @RequestParam("salary") String salary , @RequestParam("empMgrName") String empMgrName , @RequestParam("empDeptId") String empDeptId)
+	public EmployeeDetails addEmployee(@RequestParam("id") int id , @RequestParam("empName") String empName , @RequestParam("dept") String dept , @RequestParam("salary") int salary , @RequestParam("empMgrName") String empMgrName , @RequestParam("empDeptId") int empDeptId)
 	{
 		//System.out.println("jdbc object  = "+jdbc);
 		//	System.out.println("Hello");
@@ -59,13 +59,14 @@ public class EmployeeController {
 		
 	}
 	
-	@RequestMapping(value = "/getElementById" , method = RequestMethod.POST)
-	public List<EmployeeDetails> getElementById(int id)
+	@RequestMapping(value = "/getEmployeeById" , method = RequestMethod.POST)
+	public EmployeeDetails getElementById(@RequestParam("id") int id)
 	{
 		
 		EmployeeService empservice = new EmployeeServiceImplimentation();
 		
-		List<EmployeeDetails> emp = new ArrayList();
+		//List<EmployeeDetails> emp = new ArrayList();
+		EmployeeDetails emp = new EmployeeDetails();
 		emp = empservice.getEmployeeById(id,jdbc);
 		
 		return emp;

@@ -3,6 +3,7 @@ org\rest\controller\EmployeeController.class
 org\rest\RunApplication.class
 org\rest\controller\WelcomeController.class
 org\rest\dao\EmployeeDao.class
+org\rest\dao\impl\EmployeeRowMapper.class
 org\rest\model\EmployeeDetails.class
 org\rest\model\Student.class
 org\rest\Service\EmployeeService.class

@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public interface EmployeeService {
 	
-public List<EmployeeDetails> listAllUsers();
+public List<EmployeeDetails> listAllUsers(JdbcTemplate jdbc);
 	
 	//public int addEmployee(EmployeeDetails emp);
 	
-	public void updateEmployee(EmployeeDetails emp);
+	public EmployeeDetails updateEmployee(int id , EmployeeDetails emp , JdbcTemplate jdbc);
 	
 //	public void deleteEmployee(int id);
 	

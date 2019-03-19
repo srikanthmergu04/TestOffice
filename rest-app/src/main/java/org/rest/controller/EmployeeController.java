@@ -25,12 +25,11 @@ public class EmployeeController {
 	@RequestMapping(value = "/addEmployee" , method = RequestMethod.POST)
 	public EmployeeDetails addEmployee(@RequestParam("id") int id , @RequestParam("empName") String empName , @RequestParam("dept") String dept , @RequestParam("salary") int salary , @RequestParam("empMgrName") String empMgrName , @RequestParam("empDeptId") int empDeptId)
 	{
-		//System.out.println("jdbc object  = "+jdbc);
-		//	System.out.println("Hello");
 		
-		//		jdbc.update(sql, emp.getId(),emp.getEmpName(),emp.getDept(),emp.getSalary(),emp.getEmpMgrName(),emp.getEmpDeptId());
 		EmployeeService empservice = new EmployeeServiceImplimentation();
+		
 		EmployeeDetails emp = new EmployeeDetails();
+		
 		emp.setId(id);
 		emp.setEmpName(empName);
 		emp.setDept(dept);
@@ -70,6 +69,44 @@ public class EmployeeController {
 		emp = empservice.getEmployeeById(id,jdbc);
 		
 		return emp;
+		
+	}
+	
+	
+	@RequestMapping(value = "/listAllEmployees" , method = RequestMethod.POST)
+	public List<EmployeeDetails> listAllEmployees()
+	{
+		List<EmployeeDetails> emp = new ArrayList();
+		
+		EmployeeService empservice = new EmployeeServiceImplimentation();
+		
+		emp = empservice.listAllUsers(jdbc);
+		
+		
+		
+		return emp;
+		
+	}
+	
+	@RequestMapping(value = "/updateEmpployeeById" , method = RequestMethod.POST)
+	public EmployeeDetails updateEmployeeId(@RequestParam("id") int id , @RequestParam("empName") String empName , @RequestParam("dept") String dept , @RequestParam("salary") int salary , @RequestParam("empMgrName") String empMgrName , @RequestParam("empDeptId") int empDeptId)
+	{
+		
+		EmployeeService empservice = new EmployeeServiceImplimentation();
+		EmployeeDetails emp = new EmployeeDetails();
+		
+	    emp.setId(id);
+		emp.setEmpName(empName);
+		emp.setDept(dept);
+		emp.setSalary(salary);
+		emp.setEmpMgrName(empMgrName);
+		emp.setEmpDeptId(empDeptId);
+		
+		emp = empservice.updateEmployee(id, emp, jdbc);
+		
+		return emp;
+		
+		//return emp;
 		
 	}
 	

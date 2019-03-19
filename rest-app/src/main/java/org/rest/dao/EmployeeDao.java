@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeDao {
 	
-	public List<EmployeeDetails> listAllUsers();
+	public List<EmployeeDetails> listAllUsers(JdbcTemplate jdbc);
 	
 //	public int addEmployee(EmployeeDetails emp);
 	
 	public void addEmployee(EmployeeDetails emp, JdbcTemplate jdbc);
 	
-	public void updateEmployee(EmployeeDetails emp);
+	public EmployeeDetails updateEmployee(int id , EmployeeDetails emp , JdbcTemplate jdbc);
 	
 	//public void deleteEmployee(int id);
 	

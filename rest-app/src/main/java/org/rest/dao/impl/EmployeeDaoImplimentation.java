@@ -22,9 +22,18 @@ public class EmployeeDaoImplimentation implements EmployeeDao {
 	}
 
 	@Override
-	public List<EmployeeDetails> listAllUsers() {
+	public List<EmployeeDetails> listAllUsers(JdbcTemplate jdbc) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		//List<EmployeeDetails> emp = new ArrayList();
+		
+		String sql = "SELECT *FROM EmployeeDetails";
+		
+		
+		
+		
+		
+		return jdbc.query(sql, new EmployeeRowMapper());
 	}
 
 	@Override
@@ -49,7 +58,14 @@ public class EmployeeDaoImplimentation implements EmployeeDao {
 	}
 
 	@Override
-	public void updateEmployee(EmployeeDetails emp) {
+	public EmployeeDetails updateEmployee(int id , EmployeeDetails emp , JdbcTemplate jdbc) {
+		
+		String sql = "UPDATE EmployeeDetails SET empName = ? , dept = ? , salary = ? , empMgrName = ? , empDeptId = ? WHERE id = ?";
+		
+		jdbc.update(sql , emp.getEmpName() , emp.getDept() , emp.getSalary() , emp.getEmpMgrName() , emp.getEmpDeptId() , id);
+		
+		
+		return emp;
 		// TODO Auto-generated method stub
 
 	}

@@ -21,9 +21,16 @@ public class EmployeeServiceImplimentation implements EmployeeService {
 	
 	
 	@Override
-	public List<EmployeeDetails> listAllUsers() {
+	public List<EmployeeDetails> listAllUsers(JdbcTemplate jdbc) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		List<EmployeeDetails> emp = new ArrayList();
+		
+		EmployeeDao employeedao = new EmployeeDaoImplimentation();
+		
+		emp = employeedao.listAllUsers(jdbc);
+		
+		return emp;
 	}
 
 	@Override
@@ -37,7 +44,13 @@ public class EmployeeServiceImplimentation implements EmployeeService {
 	}
 
 	@Override
-	public void updateEmployee(EmployeeDetails emp) {
+	public EmployeeDetails updateEmployee(int id , EmployeeDetails emp , JdbcTemplate jdbc) {
+		
+		EmployeeDao employeedao = new EmployeeDaoImplimentation();
+		
+		emp = employeedao.updateEmployee(id, emp, jdbc);
+		
+		return emp;
 		// TODO Auto-generated method stub
 		
 	}

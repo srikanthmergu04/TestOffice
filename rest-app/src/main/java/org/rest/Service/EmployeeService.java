@@ -27,5 +27,7 @@ public List<EmployeeDetails> listAllUsers(JdbcTemplate jdbc);
 //	public void deleteEmployee(int id, JdbcTemplate jdbc);
 
 	public void deleteEmployee(int id, JdbcTemplate jdbc);
+	
+	public List<EmployeeDetails> getEmployeeByDept(String Dept , JdbcTemplate jdbc);
 
 }

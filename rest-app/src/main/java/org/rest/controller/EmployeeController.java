@@ -110,6 +110,22 @@ public class EmployeeController {
 		
 	}
 	
+	@RequestMapping(value = "/getEmployeeByDept" , method = RequestMethod.POST)
+	public List<EmployeeDetails> getElementByDept(@RequestParam("dept") String dept)
+	{
+		
+		EmployeeService empservice = new EmployeeServiceImplimentation();
+		
+		List<EmployeeDetails> emp = new ArrayList();
+		//EmployeeDetails emp = new EmployeeDetails();
+		emp = empservice.getEmployeeByDept(dept,jdbc);
+		
+		return emp;
+		
+	}
+	
+	
+	
 	
 
 }

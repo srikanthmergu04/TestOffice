@@ -23,5 +23,7 @@ public interface EmployeeDao {
 	
 	public EmployeeDetails getEmployeeById(int id , JdbcTemplate jdbc);
 	
+	public List<EmployeeDetails> getEmployeeByDept(String Dept , JdbcTemplate jdbc);
+	
 
 }

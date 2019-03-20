@@ -27,10 +27,7 @@ public class EmployeeDaoImplimentation implements EmployeeDao {
 		
 		//List<EmployeeDetails> emp = new ArrayList();
 		
-		String sql = "SELECT *FROM EmployeeDetails";
-		
-		
-		
+		String sql = "SELECT *FROM EmployeeDetails";	
 		
 		
 		return jdbc.query(sql, new EmployeeRowMapper());
@@ -96,6 +93,16 @@ public class EmployeeDaoImplimentation implements EmployeeDao {
 		//list.add(emp);
 		// TODO Auto-generated method stub
 		return emp;
+	}
+
+	@Override
+	public List<EmployeeDetails> getEmployeeByDept(String Dept, JdbcTemplate jdbc) {
+		// TODO Auto-generated method stub
+	
+		String sql = "SELECT *FROM EmployeeDetails WHERE dept = ?";
+				
+		return jdbc.query(sql, new EmployeeRowMapper() , Dept);
+		
 	}
 
 }

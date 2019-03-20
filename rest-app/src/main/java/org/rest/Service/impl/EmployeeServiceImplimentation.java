@@ -77,4 +77,17 @@ public class EmployeeServiceImplimentation implements EmployeeService {
 		return emp;
 	}
 
+	@Override
+	public List<EmployeeDetails> getEmployeeByDept(String Dept, JdbcTemplate jdbc) {
+		// TODO Auto-generated method stub
+		
+		List<EmployeeDetails> emp = new ArrayList();
+		
+		EmployeeDao employeedao = new EmployeeDaoImplimentation();
+		
+		emp = employeedao.getEmployeeByDept(Dept , jdbc);
+		return emp;
+		
+	}
+
 }
